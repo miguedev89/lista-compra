@@ -7,6 +7,11 @@ import java.util.List;
 @Entity
 public class ListaCompra {
 
+    @ManyToOne
+    private Usuario usuarioPropietario;
+    @ManyToMany
+    private List<Usuario> miembros;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -35,4 +40,23 @@ public class ListaCompra {
     public void setItems(List<ItemLista> items) {
         this.items = items;
     }
+
+    public Usuario getUsuarioPropietario() {
+        return usuarioPropietario;
+    }
+
+    public void setUsuarioPropietario(Usuario usuarioPropietario) {
+        this.usuarioPropietario = usuarioPropietario;
+    }
+
+    public List<Usuario> getMiembros() {
+        return miembros;
+    }
+
+    public void setMiembros(List<Usuario> miembros) {
+        this.miembros = miembros;
+    }
+
+    
+    
 }
